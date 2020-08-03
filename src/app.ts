@@ -12,6 +12,7 @@ dotenv.config();
  */
 const app: Application = express();
 const port = process.env.NODE_ENV === 'development' ? parseInt(process.env.WEB_LOCAL_PORT) : parseInt(process.env.WEB_PORT);
+// const port = process.env.WEB_PORT // If using docker, remove the above port, and use this instead
 
 /**
  * express middleware
