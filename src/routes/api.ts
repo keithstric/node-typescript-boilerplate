@@ -1,6 +1,6 @@
 import express, {Request, Response} from 'express';
 
-export const router = express.Router();
+export const apiRouter = express.Router();
 
 /**
  * @swagger
@@ -13,6 +13,6 @@ export const router = express.Router();
  *       500:
  *         $ref: '#/components/responses/Error'
  */
-router.get('/', (req: Request, res: Response) => {
-	res.send('Welcome to node-typescript-boilerplate, route="/"');
+apiRouter.get('/', (req: Request, res: Response) => {
+	res.send('Welcome to node-typescript-boilerplate, route="/api"');
 });

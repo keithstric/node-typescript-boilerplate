@@ -22,7 +22,8 @@ export enum LogLevels {
 	INFO = 'info',
 	VERBOSE = 'verbose',
 	DEBUG = 'debug',
-	SILLY = 'silly'
+	SILLY = 'silly',
+	HTTP = 'http'
 }
 /**
  * Interface for a log entry

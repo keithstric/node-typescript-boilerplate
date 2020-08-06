@@ -132,18 +132,13 @@ const options = {
 				}
 			},
 			parameters: {
-				ObjectQueryParam: {
-					in: 'query',
-					name: 'params',
-					description: 'A JSON object that includes the query parameters to query the DB',
+				IdParam: {
+					name: 'id',
+					description: 'The ID portion of a route (i.e. "/api/person/:id")',
+					in: 'path',
 					schema: {
-						type: 'object',
-						additionalProperties: {
-							type: 'object'
-						}
-					},
-					style: 'form',
-					explode: true
+						type: 'string'
+					}
 				}
 			}
 		},

@@ -38,11 +38,11 @@ export function requestLogger(req: Request, res: Response, next: NextFunction) {
 			request_headers: JSON.stringify(rawHeaders),
 			request_ip: remoteAddress,
 			request_route: req.route ? req.route.path : null,
-			request_url: url,
+			request_url: req.originalUrl,
 			response_headers: JSON.stringify(resHeaders),
 			response_status: res.statusCode
 		};
-		logger.debug(logEntry);
+		logger.http(logEntry);
 	});
 	next();
 }

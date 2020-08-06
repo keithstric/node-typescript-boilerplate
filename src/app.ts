@@ -4,7 +4,7 @@ import express, {Request, Response, Application} from 'express';
 import flash from 'express-flash';
 import {logger} from './config/logger/logger';
 import * as dotenv from 'dotenv';
-import {router as appRouter} from './routes/app';
+import {router} from './routes';
 
 dotenv.config();
 /**
@@ -12,7 +12,8 @@ dotenv.config();
  */
 const app: Application = express();
 const port = process.env.NODE_ENV === 'development' ? parseInt(process.env.WEB_LOCAL_PORT) : parseInt(process.env.WEB_PORT);
-// const port = process.env.WEB_PORT // If using docker, remove the above port, and use this instead
+/* If using docker, remove the above port, and use this instead */
+// const port = process.env.WEB_PORT
 
 /**
  * express middleware
@@ -37,7 +38,10 @@ app.use((err: Error, req: Request, res: Response, next: any) => {
 	next();
 });
 
-app.use('/', appRouter);
+/**
+ * Initialize all the routes
+ */
+app.use('/', router);
 
 /**
  * initialize Swagger. Must be initialized last to account for all routes
